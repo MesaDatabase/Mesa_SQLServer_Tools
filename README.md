@@ -1,2 +1,2 @@
-# SQLServer_Tools
-Code samples from my personal toolkit for diagnosing, configuring, or maintaining Microsoft SQL Server databases
+# Mesa_SQLServerTools
+Diagnostic tools, scripts, migration packages, & more for Microsoft SQL Server & Azure Data tools.
