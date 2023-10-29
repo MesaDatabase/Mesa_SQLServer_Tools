@@ -1,0 +1,13 @@
+--log on as NT AUTHORITY\SYSTEM 
+
+1. open command prompt
+2. run "at" to show scheduled tasks
+3. create scheduled task from command line
+	at 23:10 /interactive "<location of ssms.exe>"
+		OR
+	schtasks /CREATE /TN sql /IT /SC ONCE /ST 12:37 /TR "C:\Program Files\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\ssms.exe"
+	--then had to go to Scheduled Tasks UI and update the program file location - had it split into the arguments
+
+
+
+http://www.sqldbadiaries.com/2010/09/11/connect-to-sql-server-as-nt-authoritysystem/

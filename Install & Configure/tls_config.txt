@@ -1,0 +1,20 @@
+HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL.3.0\Client:
+
+Right–click on DisabledByDefault, click on Modify and enter the value 0 (hexadecimal)
+Right click on 'Enabled', click on Modify and enter the value 1 (hexadecimal).
+
+HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL.3.0\Server:
+
+Right–click on DisabledByDefault, click on Modify and enter the value 0 (hexadecimal)
+Right click on 'Enabled', click on Modify and enter the value ffffffff (hexadecimal).
+
+HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client:
+
+Right–click on DisabledByDefault, click on Modify and enter the value 0 (hexadecimal)
+Right click on 'Enabled', click on Modify and enter the value 1 (hexadecimal).
+
+HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server:
+
+Right–click on DisabledByDefault, click on Modify and enter the value 0 (hexadecimal)
+
+Right click on 'Enabled', click on Modify and enter the value ffffffff (hexadecimal).

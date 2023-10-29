@@ -1,0 +1,89 @@
+Basic Template:
+1.       Cursors (everything)
+2.       Errors and warnings (everything)
+3.       Locks
+a.       Deadlock graph
+b.      Lock: escalation
+c.       Lock: timeout (timeout > 0)
+4.       Performance
+a.       Autostats
+b.      Plan guide successful
+c.       Plan guide unsuccessful
+5.       Security Audit
+a.       Audit login
+b.      Audit Logout
+6.       Sessions
+a.       Existing connction
+b.      Preconnect:Completed
+c.       Preconnect:Starting
+7.       Stored Procedures
+a.       RPC: output Parameter
+b.      RPC: Completed
+c.       RPC: Starting
+8.       Transactions
+a.       DTC Transactions
+b.      SQL Transactions
+c.       TM: Begin Tran Completed
+d.      TM: Commit Tran Completed
+e.      TM: Promote Tran Completed
+f.        TM: Rollback Tran Completed
+g.       TM: Rollback Tran Starting
+h.      TM: Save Tran Completed
+9.       TSQL
+a.       Prepare SQL
+b.      SQL: Batch Completed
+c.       SQL: BatchStarting
+d.      SQL: StmtRecompile
+e.      Unprepare SQL
+
+Detailed Template:
+1.        Cursors (everything)
+2.      Errors and warnings (everything)
+3.      Locks
+a.       Deadlock graph
+b.      Lock: escalation
+c.       Lock: timeout (timeout > 0)
+4.      OLED 
+a.       OLEDB Errors
+5.      Performance
+a.       Autostats
+b.      Plan guide successful
+c.       Plan guide unsuccessful
+d.      Show Plan Statistics Profile – this shows the text version of the execution plan
+e.       Show Plan Statistics Profile XML – this shows the XML version of the execution plan
+6.      Security Audit
+a.       Audit login
+b.      Audit Logout
+7.      Sessions
+a.       Existing connction
+b.      Preconnect:Completed
+c.       Preconnect:Starting
+8.      Stored Procedures
+a.       RPC: output Parameter
+b.      RPC: Completed
+c.       RPC: Starting
+d.      SP: CacheMiss
+e.       SP: CacheRemove
+f.       SP: Recompile
+g.      SP: Completed
+h.      SP: Starting
+i.        SP: Stmt Completed
+j.        SP: StmtStarting
+9.      Transactions
+a.       DTC Transactions
+b.      SQL Transactions
+c.       TM: Begin Tran Completed
+d.      TM: Commit Tran Completed
+e.       TM: Promote Tran Completed
+f.       TM: Rollback Tran Completed
+g.      TM: Rollback Tran Starting
+h.      TM: Save Tran Completed
+10.  TSQL
+a.       Prepare SQL
+b.      SQL: Batch Completed
+c.       SQL: BatchStarting
+d.      SQL: Stmt Starting
+e.       SQL StmtCompleted
+f.       SQL: StmtRecompile
+g.      Unprepare SQL
+h.      SQ:StmtRecompile

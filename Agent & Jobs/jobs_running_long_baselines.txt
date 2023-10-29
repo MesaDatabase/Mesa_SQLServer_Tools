@@ -1,0 +1,65 @@
+SELECT job.name AS 'jobName',
+
+(DATEDIFF(SECOND,ja.start_execution_date,GetDate()) ) / (art.avgRunTime) AS TimesLonger
+
+FROM msdb.dbo.sysjobs AS job
+
+    INNER JOIN
+
+    (
+
+        SELECT j.job_id,
+
+               AVG((run_duration / 10000) * 3600 + (run_duration / 100 % 100) * 60 + run_duration % 100) AS 'avgRunTime' /* convert HHMMSS to seconds */
+
+        FROM msdb.dbo.sysjobhistory jh
+
+            INNER JOIN msdb.dbo.sysjobs j
+
+                ON jh.job_id = j.job_id
+
+        WHERE step_id = 0 -- only grab our total run-time
+
+              AND run_status = 1 -- only grab successful executions
+
+              AND msdb.dbo.agent_datetime(run_date, run_time) >= DATEADD(DAY, -30, GETDATE())
+
+        GROUP BY j.job_id
+
+    ) AS art
+
+        ON job.job_id = art.job_id
+
+    INNER JOIN msdb..sysjobactivity ja
+
+        ON ja.job_id = job.job_id
+
+WHERE job.enabled = 1   /* do not display disabled jobs*/
+
+      AND NOT EXISTS
+
+(    /* make sure this is the most recent run*/
+
+    SELECT 1
+
+    FROM msdb..sysjobactivity new
+
+    WHERE new.job_id = ja.job_id
+
+          AND new.start_execution_date > ja.start_execution_date
+
+)
+
+AND ja.start_execution_date IS NOT NULL
+
+AND ja.stop_execution_date IS NULL /* has not stopped */
+
+AND (DATEDIFF(SECOND,ja.start_execution_date,GetDate())) > (art.avgRunTime )
+
+AND ja.session_id = (SELECT TOP 1 session_id FROM msdb.dbo.syssessions ORDER BY agent_start_date DESC) /* Most recent run */
+
+/* Greater than 30 minutes */
+
+AND (DATEDIFF(SECOND,ja.start_execution_date,GetDate())) > 1800
+
+AND job.Name <> 'Maintenance | IndexOptimize - USER_DATABASES'

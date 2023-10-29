@@ -1,0 +1,41 @@
+-T1117
+-T1118
+-T3226
+-T2371
+
+;-T1117;-T1118;-T3226;-T2371
+
+;-T1117;-T1118;-T3226;-T2371
+
+--1117
+reduce SGAM contention
+
+--1118
+grow all files in a filegroup equally
+
+--2371
+statistics recomputed less rarely as tables grow larger
+
+--3226
+suppress successful backup messages from error log
+
+
+--https://www.brentozar.com/archive/2016/03/sql-server-2016-death-trace-flag/
+SQL Server 2016 does away with these unintuitive trace flags by adding new ALTER DATABASE commands:
+
+ALTER DATABASE SET MIXED_PAGE_ALLOCATION ON (or OFF, which is the new default behavior)
+
+ALTER DATABASE MODIFY FILEGROUP [myfilegroup] AUTOGROW_ALL_FILES (or AUTOGROW_SINGLE_FILE, which is still the default)
+
+Plus, file sizes and growths have new sensible defaults: both data and log files default to 8MB in size, and auto-growth is 64MB. (One could argue that 8MB is still on the small side, but some software-as-a-service companies with one client per database still manage to pack thousands of tiny databases per instance.)
+
+So far, so good: the trace flag behaviors are well-tested, almost as if they’ve been in beta for a decade. It’s just that now some of the good ones are on by default, like 1118 and 2371, and the rest are easier to configure safely.
+
+
+SQL Server 2016 brings a few new fun options with a new command, ALTER DATABASE SCOPED CONFIGURATION. Now, for each database, you can set:
+
+MAXDOP – the value of your choice
+LEGACY_CARDINALITY_ESTIMATION – on or off
+ONLINE_OPERATION_DEFAULT – on or off
+PARAMETER_SNIFFING – on or off
+QUERY_OPTIMIZER_HOTFIXES – on or off

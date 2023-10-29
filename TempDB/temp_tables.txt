@@ -1,0 +1,14 @@
+global temp, local temp, table variables
+global temp tables remain as long as some session references it
+temp tables have statistics
+temp tables have no undo/redo
+can create indexes and constraints on temp tables
+local temp tables remain for the session that created it
+not always consistent which is faster - truncate table before ending session or letting sql server cleanup
+table variables are not just memory only - they write to memory and disk
+table variables do not have statistics, don't have to worry about recompiles, optimizer always assumes table has only one row
+table variables cannot have indexes but can have constraints
+table variables only last during the same batch
+
+multi-statement table valued function (terrible performance)
+common table expression

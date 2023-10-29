@@ -1,0 +1,35 @@
+USE [master]
+GO
+EXEC master.dbo.sp_addlinkedserver @server = N'AZUREDB', @srvproduct=N'', @provider=N'SQLOLEDB', @datasrc=N'npduseamdapsqlsrv.database.windows.net', @catalog=N'npduseamdapsqldbDW'
+
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'collation compatible', @optvalue=N'false'
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'data access', @optvalue=N'true'
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'dist', @optvalue=N'false'
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'pub', @optvalue=N'false'
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'rpc', @optvalue=N'false'
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'rpc out', @optvalue=N'false'
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'sub', @optvalue=N'false'
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'connect timeout', @optvalue=N'0'
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'collation name', @optvalue=null
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'lazy schema validation', @optvalue=N'false'
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'query timeout', @optvalue=N'0'
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'use remote collation', @optvalue=N'true'
+GO
+EXEC master.dbo.sp_serveroption @server=N'AZUREDB', @optname=N'remote proc transaction promotion', @optvalue=N'true'
+GO
+USE [master]
+GO
+EXEC master.dbo.sp_addlinkedsrvlogin @rmtsrvname = N'AZUREDB', @locallogin = NULL , @useself = N'False', @rmtuser = N'SQLAdmin@npduseamdapsqlsrv.database.windows.net', @rmtpassword = N'password here'
+GO

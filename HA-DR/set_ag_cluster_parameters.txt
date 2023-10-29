@@ -1,0 +1,8 @@
+Get-ClusterResource  | where-object {$_.ResourceType -eq "Network Name"} | where-object {$_.Name -ne "Cluster Name"} | Get-ClusterParameter HostRecordTTL
+Get-ClusterResource  | where-object {$_.ResourceType -eq "Network Name"} | where-object {$_.Name -ne "Cluster Name"} | Get-ClusterParameter RegisterAllProvidersIP
+
+
+Get-ClusterResource AGServer1_AGLPGROUP1 | Set-ClusterParameter HostRecordTTL 300
+Get-ClusterResource AGServer2_AGLPRGROUP2 | Set-ClusterParameter RegisterAllProvidersIP 0
+
+Get-Cluster | fl *subnet*

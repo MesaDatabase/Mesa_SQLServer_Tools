@@ -1,0 +1,2 @@
+See more about ghost cleanup task 
+http://mssqlwiki.com/tag/what-is-ghost-cleanup-task/ 

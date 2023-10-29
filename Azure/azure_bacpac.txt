@@ -1,0 +1,8 @@
+https://sqlbackupandftp.com/blog/how-to-backup-azure-sql-database-to-local-machine
+
+https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database?view=sql-server-2017
+
+
+
+https://sqlbackupandftp.com/blog/how-to-backup-azure-sql-database-to-local-machine#azureportal
+
